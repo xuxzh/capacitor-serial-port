@@ -76,32 +76,32 @@ public class SerialPortPlugin extends Plugin {
             call.reject("IO错误");
         } catch (InvalidParameterException e) {
             call.reject("非法错误");
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             call.reject("请检查传入的串口配置是否完整!");
-        }catch (Exception e){
-            call.reject("接口打开失败："+e.getMessage());
+        } catch (Exception e) {
+            call.reject("接口打开失败：" + e.getMessage());
         }
 
     }
 
     @PluginMethod()
-    public void close(PluginCall call) throws IOException{
-        try{
-            if(!this.serialHelper.isOpen()){
+    public void close(PluginCall call) throws IOException {
+        try {
+            if (!this.serialHelper.isOpen()) {
                 call.reject(("请先开启串口!"));
             }
             this.serialHelper.close();
             call.resolve();
-        }catch(SecurityException e){
+        } catch (SecurityException e) {
             call.reject("安全错误");
-        }catch (Exception e){
-            call.reject("接口关闭失败："+e.getMessage());
+        } catch (Exception e) {
+            call.reject("接口关闭失败：" + e.getMessage());
         }
     }
 
     @PluginMethod
     public void sendText(PluginCall call) {
-        String msg=call.getString("message");
+        String msg = call.getString("message");
         this.serialHelper.sendTxt(msg);
         call.resolve();
     }
