@@ -1,5 +1,5 @@
 {
-  "name": "capacitor-serial-port",
+  "name": "capacitor-serial-port-android",
   "version": "0.0.1",
   "description": "serial port communication",
   "main": "dist/plugin.cjs.js",
