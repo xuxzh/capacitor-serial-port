@@ -100,9 +100,16 @@ public class SerialPortPlugin extends Plugin {
     }
 
     @PluginMethod
-    public void sendText(PluginCall call) {
+    public void sendTxt(PluginCall call) {
         String msg = call.getString("message");
         this.serialHelper.sendTxt(msg);
+        call.resolve();
+    }
+
+    @PluginMethod
+    public void sendHex(PluginCall call) {
+        String msg = call.getString("message");
+        this.serialHelper.sendHex(msg);
         call.resolve();
     }
 }

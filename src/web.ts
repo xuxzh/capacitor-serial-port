@@ -13,12 +13,21 @@ export class SerialPortWeb extends WebPlugin implements SerialPortPlugin {
     throw this.unimplemented('Not implemented on web.');
   }
 
-  async sendText(text: string): Promise<boolean> {
-    console.log('text',text);
+  async sendTxt(data:{message:string}): Promise<boolean> {
+    console.log('text',data?.message);
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async sendHex(data: { message: string }): Promise<boolean>{
+    console.log('text',data?.message);
     throw this.unimplemented('Not implemented on web.');
   }
   
   async getAllDevices(): Promise<string[]>{
+    throw this.unimplemented('Not implemented on web.');
+  }
+
+  async close(): Promise<boolean>{
     throw this.unimplemented('Not implemented on web.');
   }
 }
